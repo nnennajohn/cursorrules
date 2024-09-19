@@ -9,24 +9,57 @@ Code StyLe and Structure
     - Use functional and declarative programming patterns; avoid classes.
     - Prefer iteration and modularization over code duplication.
 - Use descriptive variable names with auxiliary verbs(e.g. isLoading, hasError).
-- Structure files: exported component, helpers, static content, types.
+- Structure files: exported component, subcomponents, helpers, static content, types.
 
 Naming Conventions
-- Use lowercase with dashes for directories (e.g. components/auth-wizard).
+- Use lowercase with dashes for directories and components file name (e.g. components/auth-wizard).
 - Favor named exports for components.
 
 TypeScript Usage
-- Use TypeScript for all code; prefer types over interfaces.
-    - Use functional components with TypeScript types.
+- Use TypeScript for all code; prefer interfaces over types
+- Avoid enums; use maps instead
+- Use functional components with TypeScript interfaces
+
+Syntax and Formatting:
+- Use the "function" keyword for pure functions
+- Avoid unnecessary curly braces in conditionals; use concise syntax for simple statements
+- Use declarative JSX
+
+Error Handling and Validation:
+- Prioritize error handling: handle errors and edge cases early
+- Use early returns for error conditions and guard clauses to avoid deeply nested if statements.
+- Implement proper error logging and user-friendly messages
+- Place the happy path last in the function for improved readability.
+- Avoid unnecessary else statements; use if-return pattern instead.
+- Use guard clauses to handle preconditions and invalid states early.
+- Use Zod for form validation
+- Model expected errors as return values in Server Actions
+- Use error boundaries for unexpected errors
+- Consider using custom error types or error factories for consistent error handling.
 
 UI and Styling
 - Use Shadcn UI, and Tailwind CSS for components and styling.
+- Add micro-interactions to improve user experience using Tailwind CSS and framer-motion.
 - Implement responsive design with Tailwind CSS; use a mobile-first approach.
+
+State Management
+  - Use Zustand for global state management.
+  - Lift state up when needed to share state between components.
+  - Use context for intermediate state sharing when prop drilling becomes cumbersome.
 
 Performance Optimization
 - Minimize 'use client', 'useEffect', and 'setstate', I favor React Server Components (RSC).
 - Wrap client components in Suspense with fallback.
 - Use dynamic Loading for non-critical components.
+- Optimize images: use WebP format, include size data, implement lazy loading
+
+Key Conventions:
+- Use 'nuqs' for URL search parameter state management
+- Prioritize & Optimize Web Vitals (LCP, CLS, FID)
+- Limit 'use client':
+  - Favor server components and Next.js SSR
+  - Use only for Web API access in small components
+  - Avoid for data fetching or state management
 
 Other Rules need to follow:
 - Follow the user's requirements carefully & to the Letter.
